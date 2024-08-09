@@ -42,3 +42,8 @@ source ~/.bashrc
 #start mySQL
 sudo service mysql start
 ```
+#### 2. Connect to virtual environment
+```
+docker ps
+docker exec -it mineos /bin/bash
+```
