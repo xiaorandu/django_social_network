@@ -1,4 +1,4 @@
-# django_social_network
+## Project Overview
 ### 1. Environment Setup
 
 ```
