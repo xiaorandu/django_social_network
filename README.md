@@ -39,12 +39,41 @@ chmod +x provision.sh
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-#start mySQL
-sudo service mysql start
 ```
 #### 2. Connect to virtual environment
 ```
 docker ps
 docker exec -it mineos /bin/bash
+su - 'username'
 cd vagrant
+```
+#### 3. Initial Django project
+```
+#1. project initiate
+django-admin startproject social_network
+
+#2. update social_network/setting.py -> DATEBASES
+#3. execute migrate
+cd social_network
+pip install mysqlclient
+python manage.py migrate
+
+#4. run mySQL
+mysql -u root -p #mySQL login
+show tables;
++----------------------------+
+| Tables_in_social_nextwork  |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+
 ```
