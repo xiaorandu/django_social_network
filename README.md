@@ -26,4 +26,19 @@ root@e928d367d8f1:/vagrant# adduser 'username'
 
 root@e928d367d8f1:/vagrant# usermod -aG sudo 'username'
 su - 'username'
+
+#copy provision.sh and requirements.txt to the shared folder
+cd /vagrant
+dos2unix provision.sh
+dos2unix requirements.txt
+
+chmod +x provision.sh
+./provision.sh
+
+#add environment variable
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+#start mySQL
+sudo service mysql start
 ```
