@@ -46,4 +46,5 @@ sudo service mysql start
 ```
 docker ps
 docker exec -it mineos /bin/bash
+cd vagrant
 ```
