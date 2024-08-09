@@ -76,4 +76,10 @@ show tables;
 | django_session             |
 +----------------------------+
 
+#5.install django rest framework
+pip install djangorestframework
+
+#6. run the project
+python manage.py runserver 0.0.0.0:8000
+
 ```
