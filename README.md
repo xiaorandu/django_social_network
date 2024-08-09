@@ -40,14 +40,14 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 ```
-#### 2. Connect to virtual environment
+#### 2. Connect to Virtual Environment
 ```
 docker ps
 docker exec -it mineos /bin/bash
 su - 'username'
-cd vagrant
+cd /vagrant
 ```
-#### 3. Initial Django project
+#### 3. Initial Django Project
 ```
 #1. project initiate
 django-admin startproject social_network
@@ -62,7 +62,7 @@ python manage.py migrate
 mysql -u root -p #mySQL login
 show tables;
 +----------------------------+
-| Tables_in_social_nextwork  |
+| Tables_in_social_network   |
 +----------------------------+
 | auth_group                 |
 | auth_group_permissions     |
@@ -81,5 +81,15 @@ pip install djangorestframework
 
 #6. run the project
 python manage.py runserver 0.0.0.0:8000
-
 ```
+#### 4. Apps
+  + **Account**
+    ```
+    python manage.py startapp accounts
+    cd accounts/
+    mkdir api
+    #create views and serializers
+    touch views.py
+    touch serializers.py
+    
+    ```
