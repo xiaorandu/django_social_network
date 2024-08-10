@@ -121,6 +121,7 @@ mysql> SHOW TABLES;
 | Tweet       | user (FK), content, created_at, like_count, comments_count |
 
 + (2) Alternatively, the project also works on using NoSQL database HBase to store friendship and newsfeed. The NoSQL database can handle large volumes of sparse data across distributed systems.
+
 **HBase Schema**
 ```
 Table: Friendship
