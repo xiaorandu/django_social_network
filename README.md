@@ -2,7 +2,8 @@
 + [1. Introduction](#1-introduction)
 + [2. Architecture Overview](#2-Architecture-Overview)
 + [3. Virtual Environment Setup](#3-Virtual-Environment-Setup)
-+ [4. Database System](#4-Database-System)
++ [4. Models](#4-Models)
++ [5. APIs](#4-APIs)
 
 ### 1. Introduction
 + **Technologies: Python, Django, MySQL, HBase, Redis, Memcached, Docker**
@@ -94,19 +95,59 @@ show tables;
 python manage.py runserver 0.0.0.0:8000
 ```
 
-### 4. Database System
+### 4. Models
++ Defining data models using Django's ORM. The models represent the database schema and are the foundations of the APIs. 
   ```
 mysql> SHOW TABLES;
 +----------------------------+
 | Tables_in_social_network   |
 +----------------------------+
-| accounts_userprofile       |
+| accounts_userProfile       |
 | comments_comment           | 
 | friendships_friendship     |
 | likes_like                 |
 | newsfeeds_newsfeed         |
-| tweets_tweet               |
-| tweets_tweetphoto          |
+| tweets_tweet               |  
 +----------------------------+
   ```
+Schema
+userProfile: user(pk), created_at, updated_at
+Comment: user(fk), tweet(fk), content, created_at, updated_at
+Friendship: from_user(fk), to_user, created_at
+Like: user(fk), object_id, content_type, content_object, created_at
+NewsFeed: user(fk), tweet(fk), created_at
+Tweet: user(fk), content, created_at, like_count, comments_count
+
+### 5. APIs
++ After creating serializers and defining ViewSets, Django Rest Frameworks' routers automatically map the viewsets to URL patterns, simplifying the process of defining the API endpoints. The URL patterns
+can be defined in `urls.py` file.
+```
+from django.contrib import admin
+from django.urls import path, include
+from rest_framework import routers
+
+from accounts.api.views import UserViewSet, AccountViewSet, UserProfileViewSet
+from friendships.api.views import FriendshipViewSet
+from newsfeeds.api.views import NewsFeedViewSet
+from tweets.api.views import TweetViewSet
+from comments.api.views import CommentViewSet
+from likes.api.views import LikeViewSet
+
+router = routers.DefaultRouter()
+router.register(r'api/users', UserViewSet)
+router.register(r'api/accounts', AccountViewSet, basename='accounts')
+router.register(r'api/tweets', TweetViewSet, basename='tweets')
+router.register(r'api/friendships', FriendshipViewSet, basename='friendships')
+router.register(r'api/newsfeeds', NewsFeedViewSet, basename='newsfeeds')
+router.register(r'api/comments', CommentViewSet, basename='comments')
+router.register(r'api/likes', LikeViewSet, basename='likes')
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls',  namespace='rest_framework')),
+    path('', include(router.urls))
+]
+```
+
+
 
