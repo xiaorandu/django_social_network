@@ -97,7 +97,7 @@ python manage.py runserver 0.0.0.0:8000
 
 ### 4. Models
 + Defining data models using Django's ORM. The models represent the database schema and are the foundations of the APIs. 
-  ```
+```
 mysql> SHOW TABLES;
 +----------------------------+
 | Tables_in_social_network   |
@@ -109,18 +109,21 @@ mysql> SHOW TABLES;
 | newsfeeds_newsfeed         |
 | tweets_tweet               |  
 +----------------------------+
-  ```
-Schema
-userProfile: user(pk), created_at, updated_at
-Comment: user(fk), tweet(fk), content, created_at, updated_at
-Friendship: from_user(fk), to_user, created_at
-Like: user(fk), object_id, content_type, content_object, created_at
-NewsFeed: user(fk), tweet(fk), created_at
-Tweet: user(fk), content, created_at, like_count, comments_count
+```
+**Schema**
+| Model       | Fields                             |
+|-------------|------------------------------------|
+| userProfile | user (PK), created_at, updated_at  |
+| Comment     | user (FK), tweet (FK), content, created_at, updated_at |
+| Friendship  | from_user (FK), to_user, created_at |
+| Like        | user (FK), object_id, content_type, content_object, created_at |
+| NewsFeed    | user (FK), tweet (FK), created_at |
+| Tweet       | user (FK), content, created_at, like_count, comments_count |
 
 ### 5. APIs
 + After creating serializers and defining ViewSets, Django Rest Frameworks' routers automatically map the viewsets to URL patterns, simplifying the process of defining the API endpoints. The URL patterns
 can be defined in `urls.py` file.
+
 ```
 from django.contrib import admin
 from django.urls import path, include
