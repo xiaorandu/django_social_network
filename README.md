@@ -1,8 +1,8 @@
 **WeConnect: Backend Web Application for a Social Networking Platform**
 + [1. Introduction](#introduction)
-+ [2. Architecture Overview](#Architecture Overview)
-+ [3. Virtual Environment Setup](#Virtual Environment Setup)
-+ [4.Database System] (#Database System)
++ [2. Architecture Overview](#Architecture-Overview)
++ [3. Virtual Environment Setup](#Virtual-Environment-Setup)
++ [4. Database System] (#Database-System)
 
 ### 1. Introduction
 + **Technologies: Python, Django, MySQL, HBase, Redis, Memcached, Docker**
@@ -67,7 +67,6 @@ django-admin startproject social_network
 #2. update social_network/setting.py -> DATEBASES
 #3. execute migrate
 cd social_network
-pip install mysqlclient
 python manage.py migrate
 
 #4. run mySQL
@@ -88,24 +87,14 @@ show tables;
 | django_session             |
 +----------------------------+
 
-#5.install django rest framework
-pip install djangorestframework
+#5. define and manage multi-container Docker applications: Memcached and Redis
+#docker-compose -f docker-compose-tools.yaml up
 
 #6. run the project
 python manage.py runserver 0.0.0.0:8000
 ```
-#### 2. Modules
-  + **Account**
-    ```
-    python manage.py startapp accounts
-    cd accounts/
-    mkdir api
-    #create views and serializers
-    touch views.py
-    touch serializers.py
-    
-    ```
-#### 3. Database
+
+### 4. Database System
   ```
 mysql> SHOW TABLES;
 +----------------------------+
@@ -120,14 +109,4 @@ mysql> SHOW TABLES;
 | tweets_tweetphoto          |
 +----------------------------+
   ```
-#### 4. Cache Management
-```
-# define and manage multi-container Docker applications: Memcached and Redis
-#docker-compose -f docker-compose-tools.yaml up
 
-(1) Memcached
-'''
-use Memcached to store friendships and users
-'''
-
-```
