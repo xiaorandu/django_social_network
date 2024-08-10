@@ -5,7 +5,7 @@
 + Implemented a **push model** for newsfeed fanout and leveraged **Redis** and **Celery** for asynchronous task processing.
 
 **Architecture Overview**
-![Architecture](diagram.png)
+<img src="diagram.png" alt="Alt text" width="60%"/>
 
 #### 1. Virtual Environment Setup
 ```
