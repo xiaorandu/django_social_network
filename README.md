@@ -4,7 +4,8 @@
 + Utilized **MySQL** and **HBase** for data storage, and employed **Redis** and **Memcached** for caching various types of data.
 + Implemented a **push model** for newsfeed fanout and leveraged **Redis** and **Celery** for asynchronous task processing.
 
-**Architecture**
+**Architecture Overview**
+![Architecture](diagram.png)
 
 #### 1. Virtual Environment Setup
 ```
