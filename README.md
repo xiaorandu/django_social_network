@@ -1,10 +1,10 @@
-## Project Overview
-
 **WeConnect: Backend Web Application for a Social Networking Platform**
 + **Technologies: Python, Django, MySQL, HBase, Redis, Memcached, Docker**
 + Developed the backend for a social networking platform using **Django**, deployed within a **Docker environment**, and implemented **RESTful APIs** for user accounts, posts, comments, friendships, likes, and newsfeeds.
 + Utilized **MySQL** and **HBase** for data storage, and employed **Redis** and **Memcached** for caching various types of data.
 + Implemented a **push model** for newsfeed fanout and leveraged **Redis** and **Celery** for asynchronous task processing.
+
+**Architecture**
 
 #### 1. Virtual Environment Setup
 ```
