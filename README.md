@@ -1,7 +1,7 @@
 ## Project Overview
 #### 1. Virtual Environment Setup
-
 ```
+(1) docker setup
 #download docker and check docker version
 docker --version
 docker info
@@ -39,16 +39,13 @@ chmod +x provision.sh
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-```
-#### 2. Connect to Virtual Environment
-```
+(2) Connect to Virtual Environment
 docker ps
 docker exec -it mineos /bin/bash
 su - 'username'
 cd /vagrant
-```
-#### 3. Initial Django Project
-```
+
+(3) Initial Django Project
 #1. project initiate
 django-admin startproject social_network
 
@@ -82,7 +79,7 @@ pip install djangorestframework
 #6. run the project
 python manage.py runserver 0.0.0.0:8000
 ```
-#### 4. Apps
+#### 2. Modules
   + **Account**
     ```
     python manage.py startapp accounts
@@ -93,7 +90,7 @@ python manage.py runserver 0.0.0.0:8000
     touch serializers.py
     
     ```
-#### Database
+#### 3. Database
   ```
 mysql> SHOW TABLES;
 +----------------------------+
@@ -108,3 +105,13 @@ mysql> SHOW TABLES;
 | tweets_tweetphoto          |
 +----------------------------+
   ```
+#### 4. Cache Management
+```
+(1) Memcached
+'''
+use Memcached to store friendships and users
+'''
+# 1. connect to Memcached
+docker run -d --name mineos -p 11211:11211 memcached
+
+```
