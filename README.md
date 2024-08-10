@@ -1,7 +1,14 @@
 ## Project Overview
+
+**WeConnect: Backend Web Application for a Social Networking Platform**
++ **Technologies: Python, Django, MySQL, HBase, Redis, Memcached, Docker**
++ Developed the backend for a social networking platform using **Django**, deployed within a **Docker environment**, and implemented **RESTful APIs** for user accounts, posts, comments, friendships, likes, and newsfeeds.
++ Utilized **MySQL** and **HBase** for data storage, and employed **Redis** and **Memcached** for caching various types of data.
++ Implemented a **push model** for newsfeed fanout and leveraged **Redis** and **Celery** for asynchronous task processing.
+
 #### 1. Virtual Environment Setup
 ```
-(1) docker setup
+***** (1) docker setup *****
 #download docker and check docker version
 docker --version
 docker info
@@ -39,13 +46,13 @@ chmod +x provision.sh
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-(2) Connect to Virtual Environment
+***** (2) Connect to Virtual Environment *****
 docker ps
 docker exec -it mineos /bin/bash
 su - 'username'
 cd /vagrant
 
-(3) Initial Django Project
+***** (3) Initial Django Project *****
 #1. project initiate
 django-admin startproject social_network
 
@@ -107,11 +114,12 @@ mysql> SHOW TABLES;
   ```
 #### 4. Cache Management
 ```
+# define and manage multi-container Docker applications: Memcached and Redis
+#docker-compose -f docker-compose-tools.yaml up
+
 (1) Memcached
 '''
 use Memcached to store friendships and users
 '''
-# 1. connect to Memcached
-docker run -d --name mineos -p 11211:11211 memcached
 
 ```
