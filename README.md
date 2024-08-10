@@ -1,8 +1,8 @@
 **WeConnect: Backend Web Application for a Social Networking Platform**
-+ [1. Introduction](#introduction)
-+ [2. Architecture Overview](#Architecture-Overview)
-+ [3. Virtual Environment Setup](#Virtual-Environment-Setup)
-+ [4. Database System] (#Database-System)
++ [1. Introduction](#1-introduction)
++ [2. Architecture Overview](#2-Architecture-Overview)
++ [3. Virtual Environment Setup](#3-Virtual-Environment-Setup)
++ [4. Database System](#4-Database-System)
 
 ### 1. Introduction
 + **Technologies: Python, Django, MySQL, HBase, Redis, Memcached, Docker**
