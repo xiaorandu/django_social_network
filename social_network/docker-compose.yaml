@@ -1,0 +1,54 @@
+services:
+  mysql8:
+    platform: linux/amd64
+    container_name: mysql8
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - /usr/local/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Archidxr
+    networks:
+      - social_network
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - /usr/local/redis/data:/data
+      - ./redis.conf:/etc/redis/redis.conf
+    restart: always
+    command: redis-server /etc/redis/redis.conf
+    networks:
+      - social_network
+
+  memcached:
+    container_name: memcached
+    image: memcached:latest
+    restart: always
+    ports:
+      - "11211:11211"
+    networks:
+      - social_network
+
+  mineos:
+    build: .
+    container_name: mineos
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/vagrant
+    networks:
+      - social_network
+    depends_on:
+      - mysql8
+      - redis
+      - memcached
+
+networks:
+  social_network:
+    driver: bridge
