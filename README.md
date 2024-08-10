@@ -93,3 +93,18 @@ python manage.py runserver 0.0.0.0:8000
     touch serializers.py
     
     ```
+#### Database
+  ```
+mysql> SHOW TABLES;
++----------------------------+
+| Tables_in_social_network   |
++----------------------------+
+| accounts_userprofile       |
+| comments_comment           | 
+| friendships_friendship     |
+| likes_like                 |
+| newsfeeds_newsfeed         |
+| tweets_tweet               |
+| tweets_tweetphoto          |
++----------------------------+
+  ```
