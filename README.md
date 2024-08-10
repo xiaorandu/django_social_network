@@ -1,4 +1,4 @@
-**WeConnect: Backend Web Application for a Social Networking Platform**
+## **WeConnect: Backend Web Application for a Social Networking Platform**
 + [1. Introduction](#1-introduction)
 + [2. Architecture Overview](#2-Architecture-Overview)
 + [3. Virtual Environment Setup](#3-Virtual-Environment-Setup)
